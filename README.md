@@ -1,32 +1,23 @@
-Highcharts_Export_.Net
-=====================
-
 # Highcharts 导出服务.Net版
-
-## 安装
-### 一、安装依赖
+===========================
+## 部署
+### 一、部署环境
 ```sh
-$ yum -y install java-1.7.0-openjdk
-$ yum -y install gcc-c++
+.Net Framework 2.0+
+IIS 6.0+
 ```
-
-### 二、搭建zookeeper
-1.新建目录
+### 二、新建网站
+#### 1.把导出服务的文件上传到服务器指定的目录
+#### 2.以此目录作为网站的根目录，在IIS中新建网站
+#### 3.假设网站的IP地址为192.168.1.100，端口为8080
+### 三、如何调用服务
 ```sh
-$ mkdir -p /data/apps
-$ mkdir -p /data/logs
-$ mkdir -p /data/programfiles
-```
-
-2.下载[zookeeper](http://www.apache.org/dyn/closer.cgi/zookeeper/)，推荐下载3.4.5版本
-```sh
-$ cd /data/programfiles
-$ wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz
-$ tar -xvf zookeeper-3.4.5.tar.gz -C ./
-```
-3.启动zookeeper(zookeeper配置在这里不做详细介绍)
-```sh
-$ cp /data/programfiles/zookeeper-3.4.5/conf/zoo_sample.cfg /data/programfiles/zookeeper-3.4.5/conf/zoo.cfg
-$ cd /data/programfiles/zookeeper-3.4.5/bin
-$ ./zkServer.sh start
+ $('#Chart').highcharts({
+    // ... 省略代码
+    exporting: {
+        //url:"服务器地址:端口/Export.aspx"
+        //url:"Server_Mechine_IP_Address:Port/Export.aspx"
+        url:"192.168.1.100:8080/Export.aspx",
+    }
+ }
 ```
