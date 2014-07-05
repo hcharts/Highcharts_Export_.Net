@@ -17,7 +17,7 @@ IIS 6.0+
     exporting: {
         //url:"服务器地址:端口/Export.aspx"
         //url:"Server_Mechine_IP_Address:Port/Export.aspx"
-        url:"192.168.1.100:8080/Export.aspx",
+        url:"192.168.1.100:8080/Export.aspx"
     }
  }
 ```
